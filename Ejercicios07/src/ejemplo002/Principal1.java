@@ -28,7 +28,7 @@ public class Principal1 {
         int numeroNotasArribaPromedio;
         int[] filaNotas;
         String mensajeFinal = "";
-        int username;
+        String user;
         int notaAlta;
         int notaBaja;
         for (int i = 0; i < nombres.length; i++) {
@@ -39,9 +39,9 @@ public class Principal1 {
             numeroNotasArribaPromedio = funcion02(filaNotas,
                     promedio_paralelo);
             tipoNotas = funcion03(filaNotas);
-            username = funcion04(username);
-            notaAlta = funcion05(notaAlta);
-            notaBaja = funcion06(notaBaja);
+            user = funcion04(nombre, apellido);
+            notaAlta = funcion05(filaNotas);
+            notaBaja = funcion06(filaNotas);
 
             mensajeFinal = String.format("%s%s\n", mensajeFinal,
                     //crea una variable mensajeFinal en la cual recibe dos valores
@@ -130,27 +130,44 @@ public class Principal1 {
         return cadena;
     }
 
-    public static int funcion04(int p) {
+    public static String funcion04(String nombre, String apellido) {
+        String user;
+        nombre = nombre.toLowerCase();
+        apellido = apellido.toLowerCase();
+        user = String.format("%s.%s@utpl.edu.ec", nombre.substring(0, 1), apellido.substring(0, 1));
+        return user;
 
     }
 
-    public static int funcion05(int k) {
-        int contador = 0;
-        int notas = 0;
-        for (int i = 0; i > notas; i++) {
-            contador = contador + 1;
+    public static int funcion05(int[] notas) {
 
+        int nota = 0;
+        for (int i = 0; i < notas.length; i++) {
+            if (notas[i] > nota) {
+                nota = notas[i];
+
+            }
+            
         }
+        return nota;
 
     }
 
-    public static int funcion06(int n) {
-        int contador = 0;
-        int notas = 0;
-        for (int i = 0; i < notas; i++) {
-            contador = contador + 1;
-
+    public static int funcion06(int[] notas) {
+        int nota = 0;
+        for (int i = 0; i < notas.length; i++) {
+            if (notas[i] < nota) {
+                nota = notas[i];
+            }
+                  
+                    
         }
+        return nota;
     }
 }
-}
+    
+
+
+
+
+
