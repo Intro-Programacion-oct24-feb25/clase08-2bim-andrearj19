@@ -8,9 +8,10 @@ public class CrearArchivoTexto {
     // agrega registros al archivo
     public static void agregarRegistros(String valor) {
         try {
-            Formatter salida = new Formatter("data/salidaDatosPersonales.txt");
-            salida.format("%s\n", valor);
-            salida.close();
+            Formatter salida = new Formatter("data/salidaDatosPersonales.txt");//formatter es para crear un archivo en esa ruta,
+                                                                              //siempre y cuando no exista el archivo y si existe lo sobreescriba.
+            salida.format("%s\n", valor);//un formato que se guarde en el archivo salida
+            salida.close();//cierra
 
         } catch (Exception e) {
             System.err.println("Error al crear el archivo.");
